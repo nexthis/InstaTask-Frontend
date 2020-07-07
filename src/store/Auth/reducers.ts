@@ -1,23 +1,20 @@
 import {createReducer} from '@reduxjs/toolkit'
+import actions from './actions'
+import state from './initialState'
 
+export const reducer = createReducer(state,{
 
-export const PostReducer = createReducer({},{
-    // [featchPostsLoading.type] : (state) => ({
-    //     ...state,
-    //     postIsLoading: true,
-    //     postErrorMessage: false,
-    // }),
-    // [featchPostsSuccess.type] : (state, action) => 
-    // ({
-    //     ...state,
-    //     posts: action.payload,
-    //     postIsLoading: false,
-    //     postErrorMessage: false,
-    // })
-    // ,
-    // [featchPostsFailure.type] : (state, action) => ({
-    //     ...state,
-    //     userIsLoading: false,
-    //     postErrorMessage: action.payload,
-    // }),
+    [actions.authLoginSuccess.type] : (state, action) => 
+    ({
+        ...state,
+        user: action.payload,
+        isLogin: true,
+        authErrorMessage: false,
+    })
+    ,
+    [actions.authLoginFailure.type] : (state, action) => ({
+        ...state,
+        isLogin: false,
+        postErrorMessage: action.payload,
+    }),
 })

@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useLayoutEffect  } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { featchPosts } from 'store/posts/actions'
+import actions from 'store/posts/actions'
 import { StoreInterface, PostsInterface } from 'store/storeType'
 import { Grid } from '@material-ui/core';
 import Card from 'components/Card/Card'
@@ -13,12 +13,13 @@ const Home = () => {
     const posts = useSelector<StoreInterface, PostsInterface>((store) => store.posts)
 
     
-    useEffect(() => {
+    useLayoutEffect(() => {
         console.log(posts.postIsLoading);
-        if(posts.postIsLoading || posts.postIsLoading ===  undefined)
-            dispatch(featchPosts())
+        if(posts.postIsLoading ===  undefined)
+            dispatch(actions.featchPosts())
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [posts.postIsLoading]) 
+
 
 
     return (

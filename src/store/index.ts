@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux'
 import configureStore from './CreateStore'
 import rootSaga from 'sagas'
-import {PostReducer } from './posts/reducers'
-// import { reducer as ScriptReducer } from './Script/Reducers'
+import {reducer  as PostReducer} from './posts/reducers'
+import {reducer as toastrReducer} from 'react-redux-toastr'
+import { reducer as AuthReducer } from './Auth/reducers'
 // import { reducer as BluetoothReducer } from './Bluetooth/Reducers'
 
 const rootReducer = combineReducers({
@@ -11,8 +12,8 @@ const rootReducer = combineReducers({
    * @see https://redux.js.org/api-reference/combinereducers
    */
    posts: PostReducer,
-//   script: ScriptReducer,
-//   bluetooth: BluetoothReducer
+   toastr: toastrReducer,
+   auth: AuthReducer,
 })
 
 export type AppState = ReturnType<typeof rootReducer>
@@ -20,3 +21,4 @@ export type AppState = ReturnType<typeof rootReducer>
 export default () => {
   return configureStore(rootReducer, rootSaga)
 }
+

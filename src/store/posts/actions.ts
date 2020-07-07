@@ -14,4 +14,4 @@ const featchPostsSuccess = createAction<Array<PostsInterface>>(PostTypes.FETCH_P
 const featchPostsFailure = createAction<string>(PostTypes.FETCH_POSTS_FAILURE);
 
 
-export {featchPosts, featchPostsLoading, featchPostsSuccess, featchPostsFailure}
+export default {featchPosts, featchPostsLoading, featchPostsSuccess, featchPostsFailure}

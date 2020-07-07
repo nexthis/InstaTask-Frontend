@@ -5,7 +5,7 @@ export default makeStyles((theme: Theme) =>
             margin: 'auto',
             borderRadius: theme.spacing(2), // 16px
             transition: 'box-shadow 0.3s, transform 0.3s',
-            boxShadow: '0px 5px 20px rgba(34, 35, 58, 0.2)',
+            boxShadow:  '0px 5px 20px rgba(34, 35, 58, 0.2)',
             position: 'relative',
             maxWidth: 500,
             marginLeft: 'auto',
@@ -23,7 +23,7 @@ export default makeStyles((theme: Theme) =>
             },
             '&:hover':{
                 transform: 'translateY(2px)',
-                boxShadow: 'rgba(0, 0, 0, 0.12) 0px 4px 20px 0px',
+                boxShadow: 'rgba(0, 0, 0, 0.12) 0px 2px 10px 0px',
             }
         },
         media: {

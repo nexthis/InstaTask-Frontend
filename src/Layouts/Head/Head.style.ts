@@ -22,6 +22,24 @@ export default makeStyles((theme: Theme) => createStyles({
         [theme.breakpoints.up('md')]: {
             display: 'inline-flex',
         },
-    }
+    },
+    user:{
+        display: 'inline-flex',
+        padding: 12,
+        verticalAlign: 'middle',
+        alignItems: 'center',
+        '& .avatar':{
+            width: theme.spacing(3.5),
+            height: theme.spacing(3.5),
+        },
+        '& .text':{
+            marginLeft: 10,
+            [theme.breakpoints.down('xs')]: {
+                display: 'none',
+            },
+        },
+    },
+
+
 
 }));

@@ -8,18 +8,21 @@ export default [
       path: "/",
       exact: true,
       name: "Home",
+      auth:false, 
       component: Home,
     },
     {
       path: "/task",
       exact: false,
       name: "Task",
+      auth:true, 
       component: Task,
     },
     {
       path: "/add",
       exact: false,
       name: "AddTask",
+      auth:true, 
       component: AddTask,
     },
 ];

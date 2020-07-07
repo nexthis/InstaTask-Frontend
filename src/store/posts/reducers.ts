@@ -1,13 +1,13 @@
 import {createReducer} from '@reduxjs/toolkit'
-import {featchPostsFailure,featchPostsLoading,featchPostsSuccess} from './actions'
+import actions from './actions'
 
-export const PostReducer = createReducer({},{
-    [featchPostsLoading.type] : (state) => ({
+export const reducer = createReducer({},{
+    [actions.featchPostsLoading.type] : (state) => ({
         ...state,
         postIsLoading: true,
         postErrorMessage: false,
     }),
-    [featchPostsSuccess.type] : (state, action) => 
+    [actions.featchPostsSuccess.type] : (state, action) => 
     ({
         ...state,
         posts: action.payload,
@@ -15,7 +15,7 @@ export const PostReducer = createReducer({},{
         postErrorMessage: false,
     })
     ,
-    [featchPostsFailure.type] : (state, action) => ({
+    [actions.featchPostsFailure.type] : (state, action) => ({
         ...state,
         userIsLoading: false,
         postErrorMessage: action.payload,
