@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardMedia, IconButton, Typography, Avatar, Box } from '@material-ui/core';
-import DeleteIcon from '@material-ui/icons/Delete';
+import VisibilityIcon from '@material-ui/icons/Visibility';
 import DoneIcon from '@material-ui/icons/Done';
 import ShareIcon from '@material-ui/icons/Share';
 import useStyles from './Card.style'
@@ -16,6 +16,7 @@ const CardComponent: React.SFC<CardState> = ({ image, user }) => {
     return (
         <Card className={cx(classes.root)}>
             <CardMedia
+                
                 className={classes.media}
                 image={
                     image
@@ -36,7 +37,7 @@ const CardComponent: React.SFC<CardState> = ({ image, user }) => {
                 <Box>
                     <Typography component="h5" variant="h5"> Po polubieniu 5 zdjęć</Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        Po polubieniu 5 zdjęć otrzymasz 5 lików   Po polubieniu 5 zdjęć otrzymasz 5 lików
+                       Otrzymasz 5 polubień i 2 komentarze
                     </Typography>
                 </Box>
                 <Box className={classes.controls}>
@@ -44,7 +45,7 @@ const CardComponent: React.SFC<CardState> = ({ image, user }) => {
                         <ShareIcon />
                     </IconButton>
                     <IconButton aria-label="next">
-                        <DeleteIcon />
+                        <VisibilityIcon />
                     </IconButton>
                     <IconButton aria-label="next">
                         <DoneIcon />

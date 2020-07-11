@@ -1,5 +1,4 @@
-import 'intersection-observer'
-import * as React from 'react'
+import React from 'react'
 
 const useIntersectionObserver = <T extends HTMLElement = HTMLElement>(
   target: React.RefObject<T> | T | null,

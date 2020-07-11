@@ -44,7 +44,7 @@ const Head = () => {
                     <IconButton onClick={() => handleClick('/add')} className={classes.noMobileIcon}>
                         <AddIcon />
                     </IconButton>
-                    {auth.isLogin ? (
+                    {auth.isLoggedIn ? (
                         <Box className={classes.user}>
                             <Avatar src={`http://127.0.0.1:8000/${auth.user?.image}`}  alt={auth.user?.name} className="avatar"/>
                             <Typography variant="body1" component="div" className="text" >

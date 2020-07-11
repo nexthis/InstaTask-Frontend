@@ -1,22 +1,37 @@
-import  axios from 'utils/client';
+import axios from 'utils/client';
 import { UserInterface } from './global';
 
 
-export interface PostsInterface{
-    data_key:string,
+export interface PostsInterface {
+    data_key: string,
     complete_count: number,
     views: number,
     image: string,
     links: Array<string>,
-    prize: { like: number, follow: boolean, comments: number },
-    task: { like: number, follow: boolean, comments: number },
+    prize: TaskInterface,
+    task: TaskInterface,
     user: UserInterface,
     created_at: string,
 }
+export interface AddTaskInterface{
+    image: {
+        image: string,
+        url: string,
+    },
+    prize: TaskInterface,
+    task: TaskInterface,
+}
+
+export interface TaskInterface {
+    like: number, 
+    comments: number,
+    follow: boolean, 
+    promo: boolean, 
+}
 
 export async function getPosts() {
-    try{
-        const {data} = await axios.get<Array<PostsInterface>>('posts')
+    try {
+        const { data } = await axios.get<Array<PostsInterface>>('posts')
         return data;
     }
     catch{
@@ -25,11 +40,12 @@ export async function getPosts() {
 }
 
 export async function addPosts() {
-    try{
-        const {data} = await axios.post<PostsInterface>('posts')
+    try {
+        const { data } = await axios.post<PostsInterface>('posts')
         return data;
     }
     catch{
         return null
     }
 }
+

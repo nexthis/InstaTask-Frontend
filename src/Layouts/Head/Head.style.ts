@@ -1,10 +1,10 @@
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
-import {common } from '@material-ui/core/colors';
+
 export default makeStyles((theme: Theme) => createStyles({
     root:{
-        borderBottom: "1px solid #dbdbdb",
+        borderBottom: `1px solid ${theme.palette.type === "light" ? theme.palette.grey[300] : theme.palette.grey[900]}`,
         marginBottom: theme.spacing(3),
-        backgroundColor: common.white,
+        backgroundColor: theme.palette.background.paper,
         // position:'fixed',
         // width: '100%',
     },

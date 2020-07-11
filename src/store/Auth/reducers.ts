@@ -8,13 +8,13 @@ export const reducer = createReducer(state,{
     ({
         ...state,
         user: action.payload,
-        isLogin: true,
+        isLoggedIn: true,
         authErrorMessage: false,
     })
     ,
     [actions.authLoginFailure.type] : (state, action) => ({
         ...state,
-        isLogin: false,
+        isLoggedIn: false,
         postErrorMessage: action.payload,
     }),
 })

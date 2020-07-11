@@ -1,12 +1,16 @@
 import React, { Suspense } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import PrivateRoute from 'components/Route/PrivateRoute'
+
+
+
 import routes from './RouterList'
 import Layout from 'Layouts/Layout'
 
-const Routers: React.FC = () => (
+const Routers: React.SFC = () => (
   <Router>
     <Layout>
-      <Suspense fallback={<div>Pamiętaj o mnie...</div>}>
+      <Suspense fallback={<div>Don't forget me!</div>}>
         <Switch>
           {routes.map((route, index) => (
             // You can render a <Route> in as many places
@@ -16,19 +20,28 @@ const Routers: React.FC = () => (
             // that requires you to render multiple things
             // in multiple places at the same URL is nothing
             // more than multiple <Route>s.
-            <Route
-              key={index}
-              path={route.path}
-              exact={route.exact}
-              children={<route.component />}
+            route.auth ?
+              <PrivateRoute
+                key={index}
+                path={route.path}
+                exact={route.exact}
+                children={<route.component />}
+              />
+              :
+              <Route
+                key={index}
+                path={route.path}
+                exact={route.exact}
+                children={<route.component />}
+              />
 
-            />
           ))}
         </Switch>
       </Suspense>
     </Layout>
   </Router>
 )
+
 
 
 export default Routers;

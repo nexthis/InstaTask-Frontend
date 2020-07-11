@@ -1,11 +1,11 @@
 import React from "react";
 
-const Login = () => {
+const ViewTask = () => {
     return (
         <>
-            Login ^^
+            ViewTask ^^
         </>
     )
 }
 
-export default Login;
+export default ViewTask;

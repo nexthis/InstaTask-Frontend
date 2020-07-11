@@ -10,7 +10,7 @@ export default makeStyles((theme: Theme) =>
             maxWidth: 500,
             marginLeft: 'auto',
             overflow: 'initial',
-            background: '#ffffff',
+            background: theme.palette.background.paper,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -50,9 +50,9 @@ export default makeStyles((theme: Theme) =>
                 left: 0,
                 width: '100%',
                 height: '100%',
-                backgroundImage: 'linear-gradient(147deg, #fe8a39 0%, #fd3838 74%)',
+                backgroundImage: 'linear-gradient(45deg, rgba(249,237,50,1) 0%, rgba(238,42,123,1) 75%, rgba(0,42,255,1) 100%)',
                 borderRadius: theme.spacing(2), // 16
-                opacity: 0.5,
+                opacity: 0.4,
             },
         },
         content: {

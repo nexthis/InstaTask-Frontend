@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:2;">
+    <g id="Icon---circle" serif:id="Icon - circle">
+        <g transform="matrix(1.02621,0,0,1.02621,-2.60484,-3.63105)">
+            <circle cx="252" cy="253" r="248" style="fill:url(#_Radial1);"/>
+        </g>
+        <g id="Icon">
+            <g transform="matrix(1.13565,0,0,1.13565,-27.1432,-32.8215)">
+                <path d="M374.645,191.661C374.645,157.078 346.568,129 311.984,129L186.661,129C152.078,129 124,157.078 124,191.661L124,316.984C124,351.568 152.078,379.645 186.661,379.645L311.984,379.645C346.568,379.645 374.645,351.568 374.645,316.984L374.645,191.661Z" style="fill:none;stroke:white;stroke-width:17.61px;"/>
+            </g>
+            <g transform="matrix(0.15128,0,0,0.15128,301.121,125.904)">
+                <circle cx="253.928" cy="263.928" r="64.928" style="fill:none;stroke:white;stroke-width:132.21px;"/>
+            </g>
+            <g transform="matrix(1,0,0,1,-7,30)">
+                <g transform="matrix(1,0,0,1,8,-58)">
+                    <path d="M186,253L324,253" style="fill:none;stroke:white;stroke-width:20px;"/>
+                </g>
+                <g transform="matrix(1,0,0,1,8,22)">
+                    <path d="M186,253L324,253" style="fill:none;stroke:white;stroke-width:20px;"/>
+                </g>
+                <g transform="matrix(1,0,0,1,8,-18)">
+                    <path d="M186,253L324,253" style="fill:none;stroke:white;stroke-width:20px;"/>
+                </g>
+            </g>
+        </g>
+    </g>
+    <defs>
+        <radialGradient id="_Radial1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(354.703,-476.511,476.511,354.703,86.3418,493.692)"><stop offset="0" style="stop-color:rgb(249,237,50);stop-opacity:1"/><stop offset="0.7" style="stop-color:rgb(238,42,123);stop-opacity:1"/><stop offset="0.84" style="stop-color:rgb(172,42,159);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(0,42,255);stop-opacity:1"/></radialGradient>
+    </defs>
+</svg>

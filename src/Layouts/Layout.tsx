@@ -1,7 +1,5 @@
 import React from "react";
-import { useTheme } from '@material-ui/core/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { Container } from "@material-ui/core"
+import { Container, Hidden  } from "@material-ui/core"
 import BottomNavigation from './Navigation/BottomNavigation'
 import Head from './Head/Head'
 
@@ -10,8 +8,6 @@ type LayoutProps = {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-    const theme = useTheme();
-    const matches = useMediaQuery(theme.breakpoints.up('md'));
     return (
         <>
             <nav><Head /></nav>
@@ -20,8 +16,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     {children}
                 </Container>
             </main>
-
-            {matches ? null : <nav> <BottomNavigation /> </nav>}
+            <Hidden mdUp>
+             <nav> <BottomNavigation /> </nav>
+            </Hidden>
 
         </>
     )

@@ -20,4 +20,8 @@ export const reducer = createReducer({},{
         userIsLoading: false,
         postErrorMessage: action.payload,
     }),
+    [actions.addPostSetData.type] : (state, action) => ({
+        ...state,
+        addPost: action.payload,
+    }),
 })
