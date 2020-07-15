@@ -52,6 +52,7 @@
     "@types/react-redux-toastr": "^7.6.0",
     "@types/react-router-dom": "^5.1.5",
     "@types/workbox-sw": "^4.3.1",
-    "redux-devtools-extension": "^2.13.8"
+    "redux-devtools-extension": "^2.13.8",
+    "workbox-cli": "^5.1.3"
   }
 }
