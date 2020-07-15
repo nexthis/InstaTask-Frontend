@@ -24,4 +24,8 @@ export const reducer = createReducer({},{
         ...state,
         addPost: action.payload,
     }),
+    [actions.addPostSendLoading.type] : (state, action) => ({
+        ...state,
+        addPostLoading: true,
+    }),
 })

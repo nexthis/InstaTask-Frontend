@@ -39,9 +39,15 @@ export async function getPosts() {
     }
 }
 
-export async function addPosts() {
+export async function addPosts(post: AddTaskInterface, token: string) {
     try {
-        const { data } = await axios.post<PostsInterface>('posts')
+        const { data } = await axios.post<PostsInterface>('post',post, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        console.log("wywołana");
+        
         return data;
     }
     catch{

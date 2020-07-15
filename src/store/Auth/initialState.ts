@@ -23,4 +23,4 @@ const stateDev:AuthInterface = {
     isLoggedIn: true,
 }
 
-export default stateDev 
+export default state 

@@ -5,7 +5,7 @@ import { PostTypes } from 'store/posts/actions'
 import { AuthTypes } from 'store/Auth/actions'
 
 import { startup } from './StartupSaga'
-import { feachPost } from './PostsSaga'
+import { feachPost, addPost } from './PostsSaga'
 import { login } from './AuthSaga'
 // import { ExampleTypes } from 'App/Stores/Example/Actions'
 
@@ -22,6 +22,7 @@ export default function* root() {
     // // Run the startup saga when the application starts
     takeLatest(StartupTypes.STARTUP, startup),
     takeLatest(PostTypes.FETCH_POSTS, feachPost),
+    takeLatest(PostTypes.ADD_POST_SEND, addPost),
     takeLatest(AuthTypes.AUTH_LOGIN, login),
     // // Call `fetchUser()` when a `FETCH_USER` action is triggered
     // takeLatest(ExampleTypes.FETCH_USER, fetchUser),

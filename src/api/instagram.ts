@@ -29,6 +29,7 @@ export interface InstagramGraphImageInterface{
  */
 export async function getImage(url:string){
     try {
+        url = url.split('?')[0];
         if(!url.includes('?__a=1'))
             url = url.concat('?__a=1')
         const { data } = await axios.get<InstagramGraphImageInterface>(url)
@@ -40,8 +41,8 @@ export async function getImage(url:string){
             imageLarge: data.graphql.shortcode_media.display_resources[2].src,
         }
     }
-    catch{
-        return null
+    catch(e){
+        throw e
     }
 }
 

@@ -8,7 +8,8 @@ import { useStyles } from 'style/Page/AddTask'
 import { getImage } from 'api/instagram'
 import { TaskInterface, AddTaskInterface } from 'api/post'
 
-import { Box, Grid, Typography, Slider, Switch, IconButton, Button, TextField, Link, CircularProgress, useTheme } from '@material-ui/core'
+import { Box, Grid, Modal, Typography, Slider, Switch, IconButton, Button, TextField, Link, CircularProgress, useTheme } from '@material-ui/core'
+import Card from 'components/Card/Card'
 import FacebookIcon from '@material-ui/icons/Facebook';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 
@@ -57,18 +58,17 @@ const AddTask = () => {
             setImage({ ...image, isLoading: true });
             getImage(url).then((data) => {
                 if (data?.image !== undefined) {
-                    if(userName === data.username)
+                    if (userName === data.username)
                         setImage({ isLoading: false, url: url, image: data.image, validUser: true, validImage: true, });
-                    else 
+                    else
                         setImage({ isLoading: false, url: url, image: data.image, validUser: false, validImage: true, });
                 }
-                else {
-                    setImage({ isLoading: false, url: '', image: '', validUser: false, validImage: false, });
-                }
 
+            }).catch(()=>{
+                setImage({ isLoading: false, url: '', image: '', validUser: false, validImage: false, });
             })
         }
-        else{
+        else {
             setImage({ isLoading: false, url: '', image: '', validUser: false, validImage: false, });
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -80,7 +80,7 @@ const AddTask = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [prize, image, task])
 
-    const storeData = () => dispatch(actions.addPostSetData({ task, prize, image:{image: image.image, url: image.url }}))
+    const storeData = () => dispatch(actions.addPostSetData({ task, prize, image: { image: image.image, url: image.url } }))
 
     const setTaskEvent = (e: ChangeEvent<{}>, value: number | number[] | boolean, type: TaskType) => {
         setTask({ ...task, [type]: value })
@@ -89,6 +89,10 @@ const AddTask = () => {
 
     const setPrizeEvent = (e: ChangeEvent<{}>, value: number | number[] | boolean, type: TaskType) => {
         setPrize({ ...prize, [type]: value })
+    }
+
+    const addPostEvent = () => {
+        dispatch(actions.addPostSend())
     }
 
     return (
@@ -100,7 +104,8 @@ const AddTask = () => {
                     <Link href="https://www.facebook.com/Insta4Task/" rel="noopener noreferrer" target="_blank">
                         <IconButton ><FacebookIcon /></IconButton>
                     </Link>
-                    <IconButton><VisibilityIcon /></IconButton>
+                    {/* <IconButton><VisibilityIcon /></IconButton> */}
+                    <ModalComponent/>
                 </Box>
             </Grid>
 
@@ -127,7 +132,7 @@ const AddTask = () => {
 
             <Grid item xs={12} md={10} >
                 <Box display="flex" flexDirection="column" justifyContent="center" className={cx(classes.card)}>
-                    <TextField value={url} onChange={(e) => setUrl(e.currentTarget.value)} fullWidth label="Zdjęcie" variant="outlined" />
+                    <TextField  value={url} onChange={(e) => setUrl(e.currentTarget.value)} fullWidth label="Zdjęcie które przyciągnie uwagę!" variant="outlined" />
                 </Box>
             </Grid>
 
@@ -191,15 +196,35 @@ const AddTask = () => {
                 </Grid>
             </Grid>
             <Grid item xs={12}>
-                <Button size="large" endIcon={<Send />} className={classes.button}>Dodaj Zadanie</Button>
+                <Button onClick={addPostEvent} size="large" endIcon={<Send />} className={classes.button}>Dodaj Zadanie</Button>
             </Grid>
         </Grid>
     )
 }
 
 
-const Modal = () =>  {
 
+const ModalComponent = () => {
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    return (
+        <>
+            <IconButton onClick={handleOpen}><VisibilityIcon /></IconButton>
+            <Modal open={open}
+                aria-describedby="card preview"
+                aria-labelledby="card preview"
+                onClose={handleClose}>
+                <Card />
+            </Modal>
+        </>
+    )
 }
 
 export default AddTask;
