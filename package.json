@@ -22,7 +22,7 @@
   "scripts": {
     "start": "react-scripts start",
     "start-sw": "npm run build & workbox injectManifest workbox-config.js & browser-sync start --server build/",
-    "build": "react-scripts build",
+    "build": "react-scripts build & workbox injectManifest workbox-config.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
