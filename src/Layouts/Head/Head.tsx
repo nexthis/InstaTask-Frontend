@@ -4,14 +4,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import actions from 'store/Auth/actions'
 import { StoreInterface, AuthInterface } from 'store/storeType'
 
-import { useHistory } from "react-router-dom";
+import { Name} from 'routes/RouterList'
+import { useHistory, Link } from "react-router-dom";
 import useStyles from './Head.style'
 import { Container, Box, IconButton, Typography,Avatar} from '@material-ui/core';
 
+import textLogo from 'assets/images/Logo-Text.png'
 import RestoreIcon from '@material-ui/icons/Restore';
 import HomeIcon from '@material-ui/icons/Home';
 import AddIcon from '@material-ui/icons/Add';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+
 
 
 const Head = () => {
@@ -27,12 +30,14 @@ const Head = () => {
     const logi = () => {
         dispatch(actions.authLogin());
     }
-
+    
     return (
         <Box className={classes.root}>
             <Container className={classes.content}>
                 <Box>
-                    <Typography variant="h6">InstaTask</Typography>
+                    <Link to={Name.Home} >
+                        <img  className={classes.logo} src={textLogo} alt="InstaTask"/>
+                    </Link>
                 </Box>
                 <Box className={classes.action}>
                     <IconButton onClick={() => handleClick('/')} className={classes.noMobileIcon}>

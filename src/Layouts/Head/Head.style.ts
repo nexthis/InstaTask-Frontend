@@ -39,6 +39,11 @@ export default makeStyles((theme: Theme) => createStyles({
             },
         },
     },
+    logo: {
+        height: 58,
+        width: 103,
+        objectFit: 'contain',
+    }
 
 
 

@@ -39,6 +39,24 @@ export async function getPosts() {
     }
 }
 
+export interface getPostInterface {
+    post: PostsInterface,
+    popular: [PostsInterface,PostsInterface,PostsInterface]
+}
+
+export async function getPost(id:string) {
+
+    try {
+        const { data } = await axios.get<getPostInterface>('post',{
+            params:{id},
+        })
+        return data;
+    }
+    catch{
+        return null
+    }
+}
+
 export async function addPosts(post: AddTaskInterface, token: string) {
     try {
         const { data } = await axios.post<PostsInterface>('post',post, {

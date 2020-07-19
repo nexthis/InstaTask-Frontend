@@ -9,7 +9,7 @@ import { getImage } from 'api/instagram'
 import { TaskInterface, AddTaskInterface } from 'api/post'
 
 import { Box, Grid, Modal, Typography, Slider, Switch, IconButton, Button, TextField, Link, CircularProgress, useTheme } from '@material-ui/core'
-import Card from 'components/Card/Card'
+// import Card from 'components/Card/Card'
 import FacebookIcon from '@material-ui/icons/Facebook';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 
@@ -221,7 +221,7 @@ const ModalComponent = () => {
                 aria-describedby="card preview"
                 aria-labelledby="card preview"
                 onClose={handleClose}>
-                <Card />
+                {/* <Card /> */}
             </Modal>
         </>
     )

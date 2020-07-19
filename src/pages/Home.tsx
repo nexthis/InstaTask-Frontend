@@ -27,10 +27,11 @@ const Home = () => {
     return (
         <>
             <Grid container spacing={4} style={{ marginTop: 30 }}>
-                {posts.postIsLoading ? 'Ładuję' : null}
+                {posts.postIsLoading && !posts.postErrorMessage ? 'Ładuję...' : null}
+                {posts.postErrorMessage ? posts.postErrorMessage : null}
                 {posts.posts?.map((item, index) =>
                     <Grid key={index} item xs={12} lg={6}>
-                        <Card image={item.image} user={{name: item.user.name, image: item.user.image, profil: item.user.instagram_profil }}/>
+                        <Card post={item}/>
                     </Grid>)
                 }
             </Grid>

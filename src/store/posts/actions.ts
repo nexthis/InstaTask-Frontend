@@ -22,8 +22,8 @@ const featchPostsFailure = createAction<string>(PostTypes.FETCH_POSTS_FAILURE);
 const addPostSetData = createAction<AddTaskInterface>(PostTypes.ADD_POST_SET_DATA);
 const addPostSend = createAction(PostTypes.ADD_POST_SEND);
 const addPostSendLoading = createAction(PostTypes.ADD_POST_SEND_LOADING);
-const addPostSendSuccess = createAction(PostTypes.ADD_POST_SEND_SUCCESS);
-const addPostSendFailure = createAction(PostTypes.ADD_POST_SEND_FAILURE);
+const addPostSendSuccess = createAction<PostsInterface>(PostTypes.ADD_POST_SEND_SUCCESS);
+const addPostSendFailure = createAction<string>(PostTypes.ADD_POST_SEND_FAILURE);
 
 export default {
     featchPosts, 

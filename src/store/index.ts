@@ -4,6 +4,7 @@ import rootSaga from 'sagas'
 import {reducer  as PostReducer} from './posts/reducers'
 import {reducer as toastrReducer} from 'react-redux-toastr'
 import { reducer as AuthReducer } from './Auth/reducers'
+
 // import { reducer as BluetoothReducer } from './Bluetooth/Reducers'
 
 const rootReducer = combineReducers({

@@ -2,6 +2,8 @@ import {createReducer} from '@reduxjs/toolkit'
 import actions from './actions'
 
 export const reducer = createReducer({},{
+
+    // FEATCH POST 
     [actions.featchPostsLoading.type] : (state) => ({
         ...state,
         postIsLoading: true,
@@ -20,6 +22,7 @@ export const reducer = createReducer({},{
         userIsLoading: false,
         postErrorMessage: action.payload,
     }),
+    // ADD POST 
     [actions.addPostSetData.type] : (state, action) => ({
         ...state,
         addPost: action.payload,
@@ -27,5 +30,11 @@ export const reducer = createReducer({},{
     [actions.addPostSendLoading.type] : (state, action) => ({
         ...state,
         addPostLoading: true,
+    }),
+    [actions.addPostSendSuccess.type] : (state, action) => ({
+        ...state,
+        ///@ts-ignore
+        posts: [action.payload, ...state.posts],
+        addPostLoading: false,
     }),
 })

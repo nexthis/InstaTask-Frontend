@@ -2,42 +2,55 @@ import { lazy } from "react";
 const Home = lazy(() => import('pages/Home'));
 const Task = lazy(() => import('pages/Task'));
 const AddTask = lazy(() => import('pages/AddTask'));
+const ViewTask = lazy(() => import('pages/ViewTask'));
+
 const NotFound = lazy(() => import('pages/404'));
 const Unauthorized = lazy(() => import('pages/401'));
 
+
+export enum Name {
+  Home = '/',
+  Task = '/task',
+  AddTask = '/add',
+  ViewTask = '/task/:userame/:id',
+  Unauthorized = '/Unauthorized',
+  NotFound = '*',
+}
+
 export default [
   {
-    path: "/",
+    path: Name.Home,
     exact: true,
-    name: "Home",
     auth: false,
     component: Home,
   },
   {
-    path: "/task",
+    path: Name.Task,
     exact: true,
-    name: "Task",
     auth: true,
     component: Task,
   },
   {
-    path: "/add",
+    path: Name.AddTask,
     exact: true,
-    name: "AddTask",
     auth: true,
     component: AddTask,
   },
   {
-    path: "/unauthorized",
+    path: Name.ViewTask,
     exact: true,
-    name: "401",
+    auth: false,
+    component: ViewTask,
+  },
+  {
+    path: Name.Unauthorized,
+    exact: true,
     auth: false,
     component: Unauthorized,
   },
   {
-    path: "*",
+    path: Name.NotFound,
     exact: false,
-    name: "404",
     auth: false,
     component: NotFound,
   },

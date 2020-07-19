@@ -27,5 +27,8 @@ export const useStyles = makeStyles((theme: Theme) => createStyles({
         color: 'white',
         display: 'flex',
         marginLeft: 'auto',
+        "&.MuiButton-label":{
+            color: 'white',
+        }
     }
 }));

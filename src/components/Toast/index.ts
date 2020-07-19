@@ -1,1 +1,3 @@
-export const Tak = {}
+export default {
+
+}
