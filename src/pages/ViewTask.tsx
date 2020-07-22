@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import {useEffectSkipFirst} from 'hooks/useEffectSkipFirst'
 
 import { Grid, Box, Typography, CardHeader, Avatar } from '@material-ui/core';
 import Skeleton from '@material-ui/lab/Skeleton';
@@ -52,13 +53,9 @@ const ViewTask = () => {
 
     }, [api, myPost])
 
-    const isFirstRun = useRef(true);
-    useEffect(() => {
-        if (!isFirstRun.current) {
+    useEffectSkipFirst((isFirstRun) => {
+        if (!isFirstRun) {
             setPost(api?.popular.find((item) => item.data_key === prams.id) || api?.post)
-        }
-        else {
-            isFirstRun.current = false
         }
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -70,7 +67,7 @@ const ViewTask = () => {
 
                 <Grid item xs={12} sm={3}>
                     {post || (post && apiState.isLoading) ?
-                        <Image aspectRatio={[1,1]} className={classes.image} src={post.image} alt={"post created by " + post.user.name} />
+                        <Image aspectRatio={[1, 1]} className={classes.image} src={post.image} alt={"post created by " + post.user.name} />
                         :
                         <Skeleton variant="rect" height={312} />
                     }
@@ -111,6 +108,9 @@ const ViewTask = () => {
                     </Box>
                 </Grid>
             </Grid>
+            <Box marginTop={5}>
+                <Typography align="center" variant="h5" component="h2">Proponowane zdjęcia</Typography>
+            </Box>
             {/* <Box marginTop={5}>
                 <Typography align="center" variant="h5" component="h2">Proponowane zdjęcia</Typography>
                 <Grid spacing={0} container>

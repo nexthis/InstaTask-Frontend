@@ -26,7 +26,7 @@ interface CardState {
 
 const CardComponent: React.SFC<CardState> = ({ post }) => {
     const classes = useStyles();
-    const [ref, inView] = useInView({triggerOnce: true});
+    const [ref, inView] = useInView({ triggerOnce: true });
 
 
     return (
@@ -41,17 +41,20 @@ const CardComponent: React.SFC<CardState> = ({ post }) => {
                         }
                     />
                     :
-                    <Skeleton variant="rect" className={classes.media}/>
+                    <Skeleton variant="rect" className={classes.media} />
                 }
-                
+
             </RouteLink>
             <CardContent className={classes.content}>
 
                 <CardHeader
                     avatar={
-                        <Avatar aria-label="avatar" src={imageURL(post.user.image)} alt={post.user.name}>
-                            A
-                        </Avatar>
+                        <a href={post.user.instagram_profil} target="_blank" rel="noopener noreferrer">
+                            <Avatar  aria-label="avatar" src={imageURL(post.user.image)} alt={post.user.name}>
+                                A
+                            </Avatar>
+                        </a>
+
                     }
                     title={post.user.name}
                     subheader={dateFormat(post.created_at, { day: 'numeric', month: 'short', year: 'numeric', })}

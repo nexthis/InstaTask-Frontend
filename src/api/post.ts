@@ -1,5 +1,5 @@
 import axios from 'utils/client';
-import { UserInterface } from './global';
+import { UserInterface,Paginate } from './global';
 
 
 export interface PostsInterface {
@@ -29,9 +29,11 @@ export interface TaskInterface {
     promo: boolean, 
 }
 
-export async function getPosts() {
+export async function getPosts(page:number | string = 1) {
     try {
-        const { data } = await axios.get<Array<PostsInterface>>('posts')
+        const { data } = await axios.get<Paginate<Array<PostsInterface>>>('posts',{
+            params: {page:page}
+        })
         return data;
     }
     catch{

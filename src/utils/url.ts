@@ -5,6 +5,14 @@ export function getURLParameter(name: string, win: Window = window) {
         [null, ''])[1].replace(/\+/g, '%20')) || null;
 }
 
+export function getExternalURLParameter(name: string, url:string) {
+    ///@ts-ignore
+    // eslint-disable-next-line
+    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(url) ||
+        [null, ''])[1].replace(/\+/g, '%20')) || null;
+}
+
+
 export function combineURLs(baseURL: string, relativeURL: string): string {
     return relativeURL
         ? baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '')

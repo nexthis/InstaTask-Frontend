@@ -1,7 +1,9 @@
 import {createReducer} from '@reduxjs/toolkit'
 import actions from './actions'
+import state from './initialState'
+import _ from 'lodash'
 
-export const reducer = createReducer({},{
+export const reducer = createReducer(state as any,{
 
     // FEATCH POST 
     [actions.featchPostsLoading.type] : (state) => ({
@@ -12,7 +14,9 @@ export const reducer = createReducer({},{
     [actions.featchPostsSuccess.type] : (state, action) => 
     ({
         ...state,
-        posts: action.payload,
+        ///@ts-ignore
+        posts: [...action.payload.data, ...state.posts],
+        postPaginate: _.omit(action.payload, 'data') ,
         postIsLoading: false,
         postErrorMessage: false,
     })
@@ -22,6 +26,7 @@ export const reducer = createReducer({},{
         userIsLoading: false,
         postErrorMessage: action.payload,
     }),
+
     // ADD POST 
     [actions.addPostSetData.type] : (state, action) => ({
         ...state,

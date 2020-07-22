@@ -5,7 +5,7 @@ export default makeStyles((theme: Theme) => createStyles({
         borderBottom: `1px solid ${theme.palette.type === "light" ? theme.palette.grey[300] : theme.palette.grey[900]}`,
         marginBottom: theme.spacing(3),
         backgroundColor: theme.palette.background.paper,
-        // position:'fixed',
+        position:'sticky',
         // width: '100%',
     },
     content:{
