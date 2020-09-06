@@ -84,7 +84,6 @@ const AddTask = () => {
 
     const setTaskEvent = (e: ChangeEvent<{}>, value: number | number[] | boolean, type: TaskType) => {
         setTask({ ...task, [type]: value })
-
     }
 
     const setPrizeEvent = (e: ChangeEvent<{}>, value: number | number[] | boolean, type: TaskType) => {
@@ -123,7 +122,7 @@ const AddTask = () => {
                                 </Typography>
                                 <Typography style={{ width: '100%' }} variant="caption">
                                     <Box width={10} height={10} marginRight={0.5} display="inline-block" borderRadius="100%" bgcolor={image.validUser ? theme.palette.success.dark : theme.palette.error.dark} />
-                                        Twoje zdjęcie
+                                    Twoje zdjęcie
                                 </Typography>
                             </>
                         )}
